@@ -11,7 +11,7 @@ export default (options) => {
         loop: false,
         lang: (navigator.language || navigator.browserLanguage).toLowerCase(),
         screenshot: false,
-        airplay: true,
+        airplay: false,
         chromecast: false,
         hotkey: true,
         preload: 'metadata',
@@ -23,6 +23,7 @@ export default (options) => {
         mutex: true,
         pluginOptions: { hls: {}, flv: {}, dash: {}, webtorrent: {} },
         preventClickToggle: false,
+        sunpump: false,
     };
     for (const defaultKey in defaultOption) {
         if (defaultOption.hasOwnProperty(defaultKey) && !options.hasOwnProperty(defaultKey)) {
@@ -50,22 +51,22 @@ export default (options) => {
         options.lang = options.lang.toLowerCase();
     }
 
-    options.contextmenu = options.contextmenu.concat([
-        {
-            key: 'video-info',
-            click: (player) => {
-                player.infoPanel.triggle();
-            },
-        },
-        {
-            key: 'about-author',
-            link: 'https://diygod.me',
-        },
-        {
-            text: `DPlayer v${DPLAYER_VERSION}`,
-            link: 'https://github.com/MoePlayer/DPlayer',
-        },
-    ]);
+    // options.contextmenu = options.contextmenu.concat([
+    //     {
+    //         key: 'video-info',
+    //         click: (player) => {
+    //             player.infoPanel.triggle();
+    //         },
+    //     },
+    //     {
+    //         key: 'about-author',
+    //         link: 'https://diygod.me',
+    //     },
+    //     {
+    //         text: `DPlayer v${DPLAYER_VERSION}`,
+    //         link: 'https://github.com/MoePlayer/DPlayer',
+    //     },
+    // ]);
 
     return options;
 };

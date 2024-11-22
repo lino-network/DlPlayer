@@ -37,6 +37,16 @@ class Controller {
         if (!utils.isMobile) {
             this.initVolumeButton();
         }
+
+        this.initSunpumpButton();
+    }
+
+    initSunpumpButton() {
+        if (this.player.options.sunpump && this.player.template.sunpumpButton) {
+            this.player.template.sunpumpButton.addEventListener('click', () => {
+                this.player.events.trigger('sunpump-enter');
+            });
+        }
     }
 
     initPlayButton() {
@@ -230,7 +240,7 @@ class Controller {
     }
 
     initScreenshotButton() {
-        if (this.player.options.screenshot) {
+        if (this.player.options.screenshot && this.player.template.camareButton) {
             this.player.template.camareButton.addEventListener('click', () => {
                 const canvas = document.createElement('canvas');
                 canvas.width = this.player.video.videoWidth;

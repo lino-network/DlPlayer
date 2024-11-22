@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <meta charset="UTF-8">
+  <title>DPlayer Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css">
+  <link rel="stylesheet" href="demo.css">
+  <script src="https://cdn.jsdelivr.net/npm/flv.js/dist/flv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js/dist/hls.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dashjs/dist/dash.all.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/webtorrent/latest/webtorrent.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pearplayer"></script>
+  <script src="../dist/DPlayer.min.js?v=8"></script>
+  <style>
+    #dplayer {
+      width: 660px;
+      height: 372px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="dplayer"></div>
+
+
+  <script>
+    const player = new DPlayer({
+      container: document.getElementById('dplayer'),
+      live: true,
+      danmaku: false,
+      volume: 0,
+      autoplay: true,
+      lang: 'en',
+      sunpump: true,
+      theme: '#FFD300',
+
+      video: {
+        type: 'customHls',
+        url: 'https://live.stg.dlive.tv/hls/live/automation.m3u8?mobileweb=true',
+        customType: {
+          customHls: (video) => {
+            this.hls = new Hls()
+            this.hls.loadSource(video.src)
+            this.hls.attachMedia(video)
+          },
+        },
+      },
+    })
+
+    player.on('sunpump-enter', () => {
+      console.log('sunpump-enter');
+    })
+  </script>
+</body>
+
+</html>

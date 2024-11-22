@@ -104,6 +104,8 @@ class Template {
         this.infoDanmakuId = this.container.querySelector('.dplayer-info-panel-item-danmaku-id .dplayer-info-panel-item-data');
         this.infoDanmakuApi = this.container.querySelector('.dplayer-info-panel-item-danmaku-api .dplayer-info-panel-item-data');
         this.infoDanmakuAmount = this.container.querySelector('.dplayer-info-panel-item-danmaku-amount .dplayer-info-panel-item-data');
+
+        this.sunpumpButton = this.container.querySelector('.dplayer-sunpump .dplayer-sunpump-enter');
     }
 
     static NewNotice(text, opacity, id) {
