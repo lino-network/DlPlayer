@@ -697,11 +697,11 @@ class DPlayer {
         this.pause();
         document.removeEventListener('click', this.docClickFun, true);
         this.container.removeEventListener('click', this.containerClickFun, true);
-        this.fullScreen.destroy();
-        this.hotkey.destroy();
-        this.contextmenu.destroy();
-        this.controller.destroy();
-        this.timer.destroy();
+        this.fullScreen && this.fullScreen.destroy();
+        this.hotkey && this.hotkey.destroy();
+        this.contextmenu && this.contextmenu.destroy();
+        this.controller && this.controller.destroy();
+        this.timer && this.timer.destroy();
         this.video.src = '';
         this.container.innerHTML = '';
         this.events.trigger('destroy');

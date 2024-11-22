@@ -56,6 +56,11 @@
     player.on('sunpump-enter', () => {
       console.log('sunpump-enter');
     })
+
+
+    setTimeout(() => {
+      player.destroy()
+    }, 2000)
   </script>
 </body>
 
