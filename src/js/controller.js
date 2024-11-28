@@ -34,9 +34,11 @@ class Controller {
         this.initHighlights();
         this.initAirplayButton();
         this.initChromecastButton();
-        if (!utils.isMobile) {
-            this.initVolumeButton();
-        }
+        // if (!utils.isMobile) {
+        //     this.initVolumeButton();
+        // }
+
+        this.initVolumeButton();
 
         this.initSunpumpButton();
     }

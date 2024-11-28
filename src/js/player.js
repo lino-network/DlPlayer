@@ -57,10 +57,10 @@ class DPlayer {
         if (utils.isMobile) {
             this.container.classList.add('dplayer-mobile');
         }
-        this.arrow = this.container.offsetWidth <= 500;
-        if (this.arrow) {
-            this.container.classList.add('dplayer-arrow');
-        }
+        // this.arrow = this.container.offsetWidth <= 500;
+        // if (this.arrow) {
+        //     this.container.classList.add('dplayer-arrow');
+        // }
 
         // multi subtitles defaultSubtitle add index, off option
         if (this.options.subtitle) {
