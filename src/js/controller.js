@@ -222,9 +222,9 @@ class Controller {
             if (this.player.video.muted) {
                 this.player.video.muted = false;
                 this.player.switchVolumeIcon();
-                this.player.bar.set('volume', this.player.volume() || 0.7, 'width');
+                this.player.bar.set('volume', this.player.volume() || 1, 'width');
                 if (utils.isMobile) {
-                    this.player.volume(this.player.volume() || 0.7);
+                    this.player.volume(1);
                 }
             } else {
                 this.player.video.muted = true;
